@@ -18,8 +18,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (response.body.error) {
             callback('Unable to find location', undefined);
         } else {
-            const precipChance = response.body.current.precip*100;
-            callback(undefined, "It is currently "+response.body.current.temperature+" degrees celcius. There is a "+precipChance+"% chance of rain.");
+            callback(undefined, "It is currently "+response.body.current.temperature+" degrees celcius. Feels like "+response.body.current.feelslike" degrees celcius.");
         }
     });
 };
